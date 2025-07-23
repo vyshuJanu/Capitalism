@@ -1,108 +1,75 @@
-# SkillSwap
+Capitalism
 
-SkillSwap is a MERN stack web platform designed to facilitate collaborative learning and skill development through peer-to-peer guidance. The platform emphasizes reciprocal knowledge exchange, industrial-grade security features, and user-friendly interfaces to create a dynamic learning environment.
+Capitalism is a MERN stack web platform designed to facilitate collaborative learning and skill development through peer-to-peer guidance. The platform focuses on creating a dynamic learning environment with secure authentication, user-friendly interfaces, and real-time communication features.
 
-## Motivation
+Motivation
 
-In today's fast-paced world, the acquisition of new skills is essential for personal and professional growth. However, traditional learning methods often lack interaction and dynamism. SkillSwap was created to address this gap by providing a platform where users can learn from each other's experiences in a collaborative and supportive community.
+In today's fast-paced world, acquiring new skills is essential for both personal and professional growth. Traditional learning methods often lack interaction and practical guidance. Capitalism bridges this gap by enabling users to exchange knowledge through collaborative, supportive peer-to-peer learning.
 
-## Features
+Features
 
-- `Peers' Connection`:  chat interface enable direct communication after connecting request and acceptance and hands-on guidance.
-- `Industrial Security Features`: Utilizes Google OAuth 2.0 authentication and JSON Web Tokens (JWT) verification for database security.
-- `Rating and Feedback System`: Users can rate and give feedback on guidance sessions, enhancing credibility and accountability.
-- `Responsive Layout`: Ensures optimal usability across various devices for an enhanced learning experience.
+Peer Connection: Real-time chat interface allows direct communication after connection requests and acceptance, enabling hands-on guidance.
+Robust Security: Implements Google OAuth 2.0 authentication and JSON Web Tokens (JWT) to ensure database and session security.
+Rating & Feedback: Users can rate and provide feedback on guidance sessions to build credibility and trust within the community.
+Responsive Design: Optimized layout for seamless use across devices, enhancing user experience.
+Technologies Used
 
-## Technologies Used
+Frontend: React.js, React Router, Context API, React-Bootstrap, Axios, React-Toastify, Socket.io-client
+Backend: Node.js, Express.js, MongoDB (MongoDB Atlas), Mongoose, Socket.io, JWT, Passport.js
+Deployment & Tools: Docker, Docker Compose, Google Cloud Console (OAuth), MongoDB Compass, Postman, VSCode, Git, GitHub
+Screenshots
 
-- `Frontend`: React.js, React Router, Context API, React-Bootstrap, Axios, React-Toastify, Socket.io-client.
-- `Backend`: Node.js, Express.js, MongoDB (MongoDB Atlas), Mongoose, Socket.io, JSON Web Token (JWT), Passport.js.
-- `Deployment`: Docker and Docker Compose
-- `Tools`: Google Cloud Console (OAuth), MongoDB Compass, Postman, Docker, Docker Compose, VSCode, Git, GitHub.
+Refer to the screenshots folder for visuals of the application interface.
 
-## Screenshots
+Installation
 
-See the screenshots of the project in the screenshots folder.
+Follow these steps to run Capitalism locally on your machine.
 
-## Installation
+Prerequisites
+Google OAuth credentials configured in Google Cloud Console.
+MongoDB Atlas connection string.
+Nodemailer app password for email notifications.
+Basic knowledge of Node.js and React projects.
+Clone the Repository
+git clone https://github.com/vyshuJanu/Capitalism.git
+cd Capitalism
+Frontend Setup
+cd Frontend
+npm install
+Create a .env file in the Frontend directory with:
 
-To run SkillSwap locally, follow these steps:
+VITE_LOCALHOST=http://localhost:8000
+VITE_SERVER_URL=<your-deployment-link>
+Run the frontend:
 
-### Prerequisites
-
-1. For Google OAuth, know how to obtain the Google OAuth credentials and configure the redirect and allowed origins routes in the Google Cloud Console.
-2. Know how to obtain the connection link of the MongoDB Atlas database.
-3. For Nodemailer, you should know how to obtain the app password.
-4. Familiarity with working on Node.js and React projects is required.
-
-### Clone the Repo
-
-```bash
-git clone https://github.com/HarshSharma20503/SkillSwap
-cd SkillSwap
-```
-
-### Frontend Setup
-
-```bash
-cd Frontend; npm install
-```
-
-Create .env file in the frontend and write the following:
-
-```env
-VITE_LOCALHOST = http://localhost:8000
-VITE_SERVER_URL = <your deployment link>
-```
-
-Run frontend
-
-```bash
 npm run dev
-```
+Frontend will be accessible at http://localhost:5173.
 
-The frontend will be running on `http://localhost:5173`
+Backend Setup
+cd ../Backend
+npm install
+Create a .env file in the Backend directory with:
 
-### Backend Setup
-
-```bash
-cd ../Backend; npm install
-```
-
-Create .env file in the frontend and write the following:
-
-```env
-PORT = 8000
-CORS_ORIGIN = *
-MONGODB_URI = mongodb+srv://<your-username>:<your-password>@cluster0.<your-project>.mongodb.net
-
-CLOUDINARY_CLOUD_NAME = <your-cloudinary-cloud-name>
-CLOUDINARY_API_KEY = <your-cloudinary-api-key>
-CLOUDINARY_API_SECRET = <your-cloudinary-api-key>
-
-GOOGLE_CLIENT_ID = <your-google-client-id> 
-GOOGLE_CLIENT_SECRET = <your-google-client-secret>
+PORT=8000
+CORS_ORIGIN=*
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.<your-project>.mongodb.net
+CLOUDINARY_CLOUD_NAME=<your-cloudinary-cloud-name>
+CLOUDINARY_API_KEY=<your-cloudinary-api-key>
+CLOUDINARY_API_SECRET=<your-cloudinary-api-secret>
+GOOGLE_CLIENT_ID=<your-google-client-id>
+GOOGLE_CLIENT_SECRET=<your-google-client-secret>
 GOOGLE_CALLBACK_URL=http://localhost:8000/auth/google/callback
+JWT_SECRET=<your-jwt-secret>
+EMAIL_ID=<your-email-id>
+APP_PASSWORD=<your-app-password>
+Run the backend:
 
-JWT_SECRET = <your-jwt-secret>
-
-EMAIL_ID = <your-email-id>
-APP_PASSWORD = <your-app-password>
-```
-
-Run backend
-
-```bash
 npm run dev
-```
+Backend will be running at http://localhost:8000.
 
-The frontend will be running on `http://localhost:8000`
+Running with Docker (Optional)
+Create a docker-compose.yml file in the root Capitalism folder:
 
-### Install and Setup through Docker
-
-Create a docker-compose.yml file in SkillSwap folder. Write the following in it.
-
-```yml
 version: '3'
 
 services:
@@ -113,10 +80,10 @@ services:
       args:
         PORT: 8000
         CORS_ORIGIN: "*"
-        MONGODB_URI: "mongodb+srv://<your-username>:<your-password>@cluster0.<your-project>.mongodb.net"
+        MONGODB_URI: "mongodb+srv://<username>:<password>@cluster0.<your-project>.mongodb.net"
         CLOUDINARY_CLOUD_NAME: "<your-cloudinary-cloud-name>"
         CLOUDINARY_API_KEY: "<your-cloudinary-api-key>"
-        CLOUDINARY_API_SECRET: "<your-cloudinary-api-key>"
+        CLOUDINARY_API_SECRET: "<your-cloudinary-api-secret>"
         GOOGLE_CLIENT_ID: "<your-google-client-id>"
         GOOGLE_CLIENT_SECRET: "<your-google-client-secret>"
         GOOGLE_CALLBACK_URL: "http://localhost:8000/auth/google/callback"
@@ -130,21 +97,14 @@ services:
       dockerfile: Dockerfile.frontend
       args:
         VITE_LOCALHOST: "http://localhost:8000"
-        VITE_SERVER_URL = "<your-deployment-link>"
+        VITE_SERVER_URL: "<your-deployment-link>"
     ports:
       - "5173:5173"
-```
+To run the app using Docker Compose:
 
-Run the docker compose file by using the following command which will run both frontend and backend.
-
-```bash
 sudo docker-compose up
-```
+To stop and remove images:
 
-To remove the docker images use the following command
-
-```bash
 sudo docker-compose down --rmi all
-```
+Access the app at http://localhost:5173.
 
-Now you can run the website on `http://localhost:5173`
